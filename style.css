@@ -1,0 +1,246 @@
+* {
+  font: inherit;
+  box-sizing: border-box;
+}
+
+:root {
+  --coral: hsl(6, 100%, 80%);
+  --pink: hsl(335, 100%, 65%);
+  --white: hsl(243, 100%, 93%);
+  --gray: hsl(229, 7%, 55%);
+  --blue: hsl(228, 56%, 26%);
+  --black: hsl(229, 57%, 11%);
+}
+
+html {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-weight: bold;
+  margin: 0 0 1em;
+}
+
+strong {
+  font-weight: bold;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('./images/bg-mobile.png');
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  row-gap: 1em;
+  padding: 0 1.5em 2.25em;
+}
+
+.header {
+  padding: 2.5rem 2.625em;
+  border-radius: 0.5em 6em 0.5em 0.5em;
+  background-color: var(--blue);
+}
+
+.brand {
+  display: block;
+  width: fit-content;
+  margin-bottom: 2rem;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1em;
+  width: fit-content;
+}
+
+.btn {
+  position: relative;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  padding: 0;
+  width: 3em;
+  height: 3em;
+  border-radius: 0.5em;
+  background-color: var(--black);
+}
+
+.btn-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.storage {
+  position: relative;
+  color: var(--white);
+  text-align: center;
+  border-radius: 0.5em;
+  padding: 1.8125em 2rem 4.75em;
+  background-color: var(--blue);
+}
+
+.storage-info {
+  font-size: 0.875em;
+  font-weight: normal;
+}
+
+.storage-status {
+  position: relative;
+  width: 100%;
+  height: 1.25em;
+  border-radius: 2em;
+  padding: 0.1875em 0.25em;
+  background-color: var(--black);
+}
+
+.progress-start,
+.progress-end {
+  position: absolute;
+  top: 1.6875rem;
+  font-size: 0.8125em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.progress-start {
+  left: 0;
+}
+
+.progress-end {
+  right: 0;
+}
+
+.progress-bar {
+  position: relative;
+  width: 75.5%;
+  height: 100%;
+  border-radius: 2em;
+  transition: all 0.5s ease-in-out;
+  background-image: linear-gradient(to right, var(--coral), var(--pink));
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0.125em;
+  right: 0.125em;
+  border-radius: 50%;
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: var(--white);
+}
+
+.storage-notice {
+  position: absolute;
+  left: 50%;
+  bottom: -2.25rem;
+  width: 11.25rem;
+  color: var(--gray);
+  font-weight: bold;
+  border-radius: 0.5em;
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  background-color: var(--white);
+}
+
+.notice-text {
+  margin: 0;
+  position: relative;
+  font-size: 0.8125em;
+}
+
+.notice-highlight {
+  font-size: 2.5rem;
+  color: var(--black);
+  vertical-align: middle;
+  margin-right: 0.625rem;
+  line-height: 1;
+}
+
+@media screen and (min-width: 992px) {
+  .page {
+    background-size: 100%;
+    background-position: left bottom;
+    background-color: var(--black);
+    background-image: url('./images/bg-desktop.png');
+  }
+
+  .card {
+    padding: 0 0 1.375rem;
+    gap: 0 1.875rem;
+    width: 100%;
+    align-items: flex-end;
+    flex-direction: row;
+    max-width: 57.5rem;
+    margin-inline: auto;
+  }
+
+  .header {
+    flex: 0 0 21.875rem;
+  }
+
+  .storage {
+    flex: 1 0 0;
+    height: 100%;
+    padding: 2.375rem 2.5rem 3.75rem;
+    text-align: left;
+  }
+
+  .progress-start, .progress-end {
+    top: 1.5rem;
+  }
+
+  .progress-bar {
+    width: 75%;
+  }
+
+  .storage-notice {
+    position: absolute;
+    top: -3rem;
+    left: unset;
+    right: 2.5rem;
+    bottom: unset;
+    margin-left: auto;
+    transform: none;
+  }
+
+  .storage-notice-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    bottom: -1.5rem;
+    border-width: 1.5rem;
+    border-style: solid;
+    border-color: transparent var(--white) transparent transparent;
+  }
+}
